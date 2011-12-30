@@ -1,7 +1,9 @@
 <?php
 
-define("ENV",'sandbox');
+// Current environment. 'live' or 'sandbox'
+define("ENV",'live');
 
+// API version. Required by paypal for all requests
 define("API_VER",'84.0');
 
 
