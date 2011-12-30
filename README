@@ -1,0 +1,11 @@
+== Hackcess ==
+A membership tracking system with payment integration useful for membership-funded groups.
+
+== Requirements ==
+* Apache
+** .htaccess allowed for docroot
+* MySQL 5+
+* PHP 5+
+
+== Installation ==
+TBD

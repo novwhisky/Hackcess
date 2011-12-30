@@ -51,7 +51,7 @@ class Paypal{
 	
 	public function transactionSearch($params)
 	{
-		// required parameter STARTDATE
+		// required param STARTDATE
 		if(isset($params['STARTDATE'])){
 			$params['RECURSIVE'] = $params['RECURSIVE'] || false;
 			$mResult = $this->api('TransactionSearch',$params);
