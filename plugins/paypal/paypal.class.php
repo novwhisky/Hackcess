@@ -2,7 +2,7 @@
 
 class Paypal{
 	
-	protected static $api_cred;
+	private static $api_cred;
 	
 	function __construct($usr,$pwd,$sig)
 	{
