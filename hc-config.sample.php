@@ -9,6 +9,8 @@ define("ENV",'dev');
 define("DS",DIRECTORY_SEPARATOR);
 define("APPROOT",realpath('.').DS);
 define("HCCORE",APPROOT.'hc-core'.DS);
+define("HCCONTROLLERS",APPROOT.'hc-controllers'.DS);
+define("HCMODELS",APPROOT.'hc-models'.DS);
 
 // After all configuration is complete
 require_once HCCORE.'hc-env.php';
