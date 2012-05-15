@@ -5,10 +5,11 @@ class Loader{
 	private $_req;
 	private $_ns;
 	private $_auth;
+	public 	$controller;
 	
 	public function __construct()
 	{
-		$this->_req = $_SERVER['REQUEST_URI'];
+		$this->_req = preg_replace('/'.addslashes(WEBROOT).'/','',$_SERVER['REQUEST_URI']);
 		$this->_ns  = "Hackcess.";
 		$this->_auth = $this->checkAuth();
 		$this->parseRequest();
@@ -25,16 +26,16 @@ class Loader{
 	
 	private function loadController($name,$data = array())
 	{
-		$ldr = $this;
-		include_once HCCORE.'hc-controller-base.php';
 		$path = HCCONTROLLERS.$name.'.php';
-		if(file_exists($path))
+		if(class_exists($name))
 		{
-			include_once $path;
+			$controller = new $name($data);
+		}else if($this->_req == WEBROOT){
+			$controller = new Dashboard($data);
 		}else{
 			//404
 			header("HTTP/1.0 404 Not Found");
-			echo '<h1>404</h1><hr/><p>You broke it!</p>';		
+			echo "<h1>404</h1>".$this->_req."<hr/><p>You broke it!</p>";
 		}
 	}
 	
@@ -50,5 +51,20 @@ class Loader{
 	}
 
 }
+
+function dirload($path){
+	if ($handle = opendir(APPROOT.$path)) {
+		while (false !== ($entry = readdir($handle))) {
+			if ($entry != "." && $entry != "..") {
+				include APPROOT.$path.DS.$entry;
+			}
+		}
+		closedir($handle);
+	}
+}
+
+dirload('hc-controllers');
+//dirload('hc-models');
+//dirload('hc-templates');
 
 $loader = new Loader();

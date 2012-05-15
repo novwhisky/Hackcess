@@ -2,6 +2,8 @@
 class hcLib{
 	
 	public $nav;
+	private $_registeredEvents;
+	
 	
 	public function __construct()
 	{
@@ -15,7 +17,17 @@ class hcLib{
 	
 	public function buildNav()
 	{
-
+		
+	}
+	
+	public function registerEvent($hook, $func)
+	{
+		
+	}
+	
+	public function deregisterEvent($hook, $func)
+	{
+		
 	}
 }
 $HC = new hcLib();

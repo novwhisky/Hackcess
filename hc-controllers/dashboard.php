@@ -1,12 +1,12 @@
 <?php
 
 
-class Transaction extends Controller{
+class Dashboard extends Controller{
 	
 	public function __construct($data)
 	{
 		parent::__construct();
-		echo "<h2>Transaction</h2>";
+		echo "<h2>DASHBOARD</h2>";
 		var_dump($data);
 	}
 }

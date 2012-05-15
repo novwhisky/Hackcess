@@ -10,4 +10,3 @@ class User extends Controller{
 		var_dump($data);
 	}
 }
-$user = new User($data);
